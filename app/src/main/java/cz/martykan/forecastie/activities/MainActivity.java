@@ -83,8 +83,10 @@ public class MainActivity extends BaseActivity implements LocationListener {
     // Time in milliseconds; only reload weather if last update is longer ago than this value
     private static final int NO_UPDATE_REQUIRED_THRESHOLD = 300000;
 
-    private static Map<String, Integer> speedUnits = new HashMap<>(3);
-    private static Map<String, Integer> pressUnits = new HashMap<>(3);
+    private static final Map<String, Integer> speedUnits = new HashMap<>(3);
+    private static final Map<String, Integer> pressUnits = new HashMap<>(3);
+
+    // Whether mappings have been initialised or not
     private static boolean mappingsInitialised = false;
 
     @NonNull
@@ -192,20 +194,14 @@ public class MainActivity extends BaseActivity implements LocationListener {
         AlarmReceiver.setRecurringAlarm(this);
 
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshWeather();
-                swipeRefreshLayout.setRefreshing(false);
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            refreshWeather();
+            swipeRefreshLayout.setRefreshing(false);
         });
 
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                // Only allow pull to refresh when scrolled to top
-                swipeRefreshLayout.setEnabled(verticalOffset == 0);
-            }
+        appBarLayout.addOnOffsetChangedListener((appBarLayout1, verticalOffset) -> {
+            // Only allow pull to refresh when scrolled to top
+            swipeRefreshLayout.setEnabled(verticalOffset == 0);
         });
     }
 
@@ -247,7 +243,7 @@ public class MainActivity extends BaseActivity implements LocationListener {
                 PreferenceManager.getDefaultSharedPreferences(this).getBoolean("transparentWidget", false) != widgetTransparent) {
             // Restart activity to apply theme
             overridePendingTransition(0, 0);
-            prefs.edit().putBoolean("firstRun", true).commit();
+            prefs.edit().putBoolean("firstRun", true).apply();
             finish();
             overridePendingTransition(0, 0);
             startActivity(getIntent());
@@ -258,7 +254,7 @@ public class MainActivity extends BaseActivity implements LocationListener {
         }
         if (firstRun) {
             tapGraph.setText(getString(R.string.tap_for_graphs));
-            prefs.edit().putBoolean("firstRun",false).commit();
+            prefs.edit().putBoolean("firstRun",false).apply();
         }
     }
 
@@ -928,7 +924,7 @@ public class MainActivity extends BaseActivity implements LocationListener {
     public static long saveLastUpdateTime(SharedPreferences sp) {
         Calendar now = Calendar.getInstance();
         long lastUpdate = now.getTimeInMillis();
-        sp.edit().putLong("lastUpdate", lastUpdate).commit();
+        sp.edit().putLong("lastUpdate", lastUpdate).apply();
         return lastUpdate;
     }
 
