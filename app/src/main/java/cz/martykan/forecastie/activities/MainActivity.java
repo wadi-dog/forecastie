@@ -76,6 +76,8 @@ import cz.martykan.forecastie.widgets.AbstractWidgetProvider;
 
 public class MainActivity extends BaseActivity implements LocationListener {
     protected static final int MY_PERMISSIONS_ACCESS_FINE_LOCATION = 1;
+
+    // Bundle keys
     public static final String SHOULD_REFRESH_FLAG = "shouldRefresh";
 
     // Time in milliseconds; only reload weather if last update is longer ago than this value
