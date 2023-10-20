@@ -1,7 +1,7 @@
 <!-- Do not change the order of any strings in here, without discussing first on the "Issues" page -->
 <!-- Do not delete any blank lines -->
 <resources>
-    <string name="app_name">Forecastie</string>
+    <string name="app_name">Agriweather</string>
     <!-- Main activity titles -->
     <string name="action_search">Buscar</string>
     <string name="action_refresh">Actualizar</string>
@@ -187,7 +187,7 @@
     <!-- About dialogue -->
     <string name="about_unknown">No se puede obtener el nombre de la versión</string>
     <string name="about_description">Una aplicación sencilla para consultar el tiempo, desarrollada con software libre y bajo licencia GPLv3.</string>
-    <string name="about_developers">Desarrollada por <a href='mailto:t.martykan@gmail.com'>Tomas Martykan</a> y <a href='https://github.com/martykan/forecastie/graphs/contributors'>otros</a>, con la ayuda de <a href='https://github.com/martykan/forecastie/issues?utf8=✓;q=is%3Aissue'>muchos más</a>.</string>
+    <string name="about_developers">Desarrollada por <a href='mailto:info@en-services.com'>Tomas Martykan</a> y <a href='https://github.com/martykan/forecastie/graphs/contributors'>otros</a>, con la ayuda de <a href='https://github.com/martykan/forecastie/issues?utf8=✓;q=is%3Aissue'>muchos más</a>.</string>
     <string name="about_src">Código fuente disponible en <a href='https://github.com/martykan/forecastie'>Github</a>.</string>
     <string name="about_issues">Puede enviar errores y mejoras a nuestra página <a href='https://github.com/martykan/forecastie/issues'>de seguimiento de errores en Github</a>.</string>
     <string name="about_data">Datos proporcionados por <a href='https://openweathermap.org/'>OpenWeatherMap</a>, bajo la licencia <a href='http://creativecommons.org/licenses/by-sa/2.0/'>Creative Commons CC-BY-SA</a>.</string>

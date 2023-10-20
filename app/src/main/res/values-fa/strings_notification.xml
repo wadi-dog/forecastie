@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="notification_service_description">این سرویس برای نمایش اعلان برنامه Forecastie است.</string>
+    <string name="notification_service_description">این سرویس برای نمایش اعلان برنامه Agriweather است.</string>
     <string name="channel_name">اعلان آب و هوا</string>
     <string name="no_data">بدون داده</string>
 

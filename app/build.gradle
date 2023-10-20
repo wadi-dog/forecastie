@@ -5,7 +5,7 @@ def lifecycleVersion = '2.2.0'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "cz.martykan.forecastie"
+        applicationId "com.enservices.agriweather"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 74
